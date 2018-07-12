@@ -74,6 +74,8 @@
 	const outer_canvas=document.getElementById('outer-canvas');
 	 // canvas实例
 	const oCanvas = document.getElementById('my-canvas');
+
+	var frames=[];
 	const ctx = oCanvas.getContext("2d");
 	oUpload.onchange = loadFile;
 	oInput.onchange = loadUrl;
@@ -153,7 +155,9 @@
 			ctx.globalCompositeOperation="destination-over";
 	    	ctx.drawImage(bg, 0, 0);
 			var dataURL=oCanvas.toDataURL('image/jpeg'); //转换图片为dataURL
-			setDownLoad(dataURL);
+			frames.push(dataURL);
+			console.log(frames);
+			//setDownLoad(dataURL);
 			alert('ok!');
 		});
 
